@@ -61,3 +61,16 @@ products.forEach((product)=>{
 //put it on the web page (using dom)
 document.querySelector('.js-products-grid').
     innerHTML= productsHTML; //we can change html inside elemnet  
+
+
+// make it intractive.
+
+document.querySelectorAll('.js-add-to-cart')
+    .forEach((button)=>{
+        button.addEventListener('click',()=>{
+          console.log('added product');
+        });
+    });
+
+    // supersimple.dev/projects/amazonscripts/amazon.js
+
