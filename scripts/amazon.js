@@ -2,6 +2,8 @@
 // we use objects {} as it allows multiple values together
 // to genrate html we can looop throuh each element by array
 import { cart } from '../data/cart.js';
+import { products } from '../data/products.js';
+
 
 let productsHTML = '';//combine this html together
 
