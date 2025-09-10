@@ -1,7 +1,7 @@
 // we will use array to store.
 // we use objects {} as it allows multiple values together
 // to genrate html we can looop throuh each element by array
-
+import { cart } from '../data/cart.js';
 
 let productsHTML = '';//combine this html together
 
@@ -99,4 +99,13 @@ document.querySelectorAll('.js-add-to-cart')
     //data attribute : just anthor html attribute 
     // allows us to attach any information to an element .
     // supersimple.dev/projects/amazonscripts/amazon.js
+
+//modules 
+// Get a variable out of a file
+//: 1: add type ="module" attribute :: lets this file get varibles out of other files.
+//2: export
+//3: import
+// advantages of modules.
+//1:reduce the naming conflict using modules
+//2: we dont have to worry about our order of our files.
 
