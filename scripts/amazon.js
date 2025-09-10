@@ -1,8 +1,13 @@
 // we will use array to store.
 // we use objects {} as it allows multiple values together
 // to genrate html we can looop throuh each element by array
-import { cart } from '../data/cart.js';
+import { cart, addToCart} from '../data/cart.js';
 import { products } from '../data/products.js';
+
+// impoert anthor ways is:: 
+//import * as cartModule from '../data/cart.js';
+//cartModule.cart
+//cartModule.addTocart('id');
 
 
 let productsHTML = '';//combine this html together
@@ -65,36 +70,23 @@ products.forEach((product)=>{
 document.querySelector('.js-products-grid').
     innerHTML= productsHTML; //we can change html inside elemnet  
 
-
 // make it intractive.
+function uqdateCartQuantity(){
+    let cartQuantity = 0;
+        cart.forEach((cartItem)=>{
+          cartQuantity +=Number(cartItem.quantity)|| 0;
+        });
+        document.querySelector('.js-cart-quantity')
+          .innerHTML = cartQuantity;
+      
+}
 
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button)=>{
         button.addEventListener('click',()=>{
         const productId = button.dataset.productId; 
-
-        let matchingItem;
-
-        cart.forEach((item) => {
-          if(productId === item.productId){
-            matchingItem = item;
-          }
-        });
-
-        if(matchingItem){
-          matchingItem.quantity += 1;
-        }else{
-          cart.push({
-            productId:productId,
-            quantity:1
-          });
-        }
-        let cartQuantity = 0;
-        cart.forEach((item)=>{
-          cartQuantity +=Number(item.quantity)|| 0;
-        });
-        document.querySelector('.js-cart-quantity')
-          .innerHTML = cartQuantity;
+        addToCart(productId);
+        uqdateCartQuantity();
       });
     });
 
